@@ -1,0 +1,165 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity tone_generator is
+port(clk_out1, clk_out2, clk_out3, clk_out4, clk_out5, clk_out6, clk_out7, clk_out8 : out std_logic;
+		clk_50, resetn : in std_logic);
+end entity tone_generator;
+
+architecture Struct of tone_generator is 
+
+ signal i: integer := 0;
+ signal outp1, outp2, outp3, outp4, outp5, outp6, outp7, outp8: std_logic := '1';
+ 
+begin
+clock_proc1: process(clk_50, i, resetn)
+begin
+		if(resetn='1') then
+			i <= 0;
+			outp1 <= '0';
+		elsif(clk_50='1' and clk_50'event) then
+			if(i=104168) then
+				outp1 <= not outp1;
+				i <= 0;
+			else
+				i <= i+1;
+			end if;
+		end if;
+end process;
+
+clk_out1 <= outp1;
+
+
+begin
+clock_proc2: process(clk_50, i, resetn)
+begin
+		if(resetn='1') then
+			i <= 0;
+			outp2 <= '0';
+		elsif(clk_50='1' and clk_50'event) then
+			if(i=92593) then
+				outp2 <= not outp2;
+				i <= 0;
+			else
+				i <= i+1;
+			end if;
+		end if;
+end process;
+
+clk_out2 <= outp2;
+
+
+begin
+clock_proc3: process(clk_50, i, resetn)
+begin
+		if(resetn='1') then
+			i <= 0;
+			outp3 <= '0';
+		elsif(clk_50='1' and clk_50'event) then
+			if(i=83333) then
+				outp3 <= not outp3;
+				i <= 0;
+			else
+				i <= i+1;
+			end if;
+		end if;
+end process;
+
+clk_out3 <= outp3;
+
+
+begin
+clock_proc4: process(clk_50, i, resetn)
+begin
+		if(resetn='1') then
+			i <= 0;
+			outp4 <= '0';
+		elsif(clk_50='1' and clk_50'event) then
+			if(i=78125) then
+				outp1 <= not outp4;
+				i <= 0;
+			else
+				i <= i+1;
+			end if;
+		end if;
+end process;
+
+clk_out4 <= outp4;
+
+
+begin
+clock_proc5: process(clk_50, i, resetn)
+begin
+		if(resetn='1') then
+			i <= 0;
+			outp5 <= '0';
+		elsif(clk_50='1' and clk_50'event) then
+			if(i=69444) then
+				outp5 <= not outp5;
+				i <= 0;
+			else
+				i <= i+1;
+			end if;
+		end if;
+end process;
+
+clk_out5 <= outp5;
+
+
+begin
+clock_proc6: process(clk_50, i, resetn)
+begin
+		if(resetn='1') then
+			i <= 0;
+			outp1 <= '0';
+		elsif(clk_50='1' and clk_50'event) then
+			if(i=62500) then
+				outp6 <= not outp6;
+				i <= 0;
+			else
+				i <= i+1;
+			end if;
+		end if;
+end process;
+
+clk_out6 <= outp6;
+
+
+begin
+clock_proc7: process(clk_50, i, resetn)
+begin
+		if(resetn='1') then
+			i <= 0;
+			outp7 <= '0';
+		elsif(clk_50='1' and clk_50'event) then
+			if(i=55556) then
+				outp7 <= not outp7;
+				i <= 0;
+			else
+				i <= i+1;
+			end if;
+		end if;
+end process;
+
+clk_out7 <= outp7;
+
+
+begin
+clock_proc8: process(clk_50, i, resetn)
+begin
+		if(resetn='1') then
+			i <= 0;
+			outp8 <= '0';
+		elsif(clk_50='1' and clk_50'event) then
+			if(i=52083) then
+				outp8 <= not outp8;
+				i <= 0;
+			else
+				i <= i+1;
+			end if;
+		end if;
+end process;
+
+clk_out8 <= outp8;
+
+end Struct;
